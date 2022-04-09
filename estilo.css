@@ -6,7 +6,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #EEF9BF;
+    text-align: center;
+    flex-direction: column;
 }
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 122px;
+    margin-right: 88px;
+    border: solid;
+}
+
 .container{
     width: 1110px;
     height: 700px;
@@ -35,13 +48,13 @@ body{
     margin-left: 100px;
 }
 .baralho {
-    display: flex;
+    display: flex; 
     width: 900x;
     height: 550px;
     border: solid;
     border-color: red;
     flex-wrap: wrap;
-
+    position: relative;
 }
 .carta-background {
     width: 117px;
@@ -56,21 +69,9 @@ body{
     backface-visibility: hidden;
     transition: all .5s;
     transform-style: preserve-3d;
-    position: relative;
-}
-.tamanho-papagaio {
-    width: 100px;
-    height: 100px;
-}
-.tamanho-gif {
-    width: 100px;
-    height: 100px;
    
 }
-.back-face {
-    transform: rotateY(180deg);
-    position: absolute;
-  }
+
 
   .carta-background:hover .back-face {
     transform: rotateY(0deg);
@@ -79,3 +80,50 @@ body{
   .carta-background:hover .front-face {
     transform: rotateY(-180deg);
   }
+
+  /* ajeitando classes */
+
+  .card {
+    width: 117px;
+    height: 146px;
+    margin-right: 34px;
+    margin-bottom: 34px;
+    position: relative;
+}
+.card img {
+    width: 100%px;
+    height: 100px;
+}
+.face {
+    width: 117px;
+    height: 146px;
+    background-color: #A7E9AF;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+.back-face {
+    transform: rotateY(0deg);
+}
+  .screen_click_on {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: none;
+    z-index: -1;
+}
+
+
+
