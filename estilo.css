@@ -53,9 +53,29 @@ body{
     justify-content: center;
     align-items: center;
     margin-right: 34px;
-   
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+    position: relative;
 }
 .tamanho-papagaio {
     width: 100px;
     height: 100px;
 }
+.tamanho-gif {
+    width: 100px;
+    height: 100px;
+   
+}
+.back-face {
+    transform: rotateY(180deg);
+    position: absolute;
+  }
+
+  .carta-background:hover .back-face {
+    transform: rotateY(0deg);
+  }
+
+  .carta-background:hover .front-face {
+    transform: rotateY(-180deg);
+  }
