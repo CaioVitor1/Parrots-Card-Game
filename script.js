@@ -99,15 +99,39 @@ function cartasIguais(back, front, cartaSelecionada) {
 
         cartasViradas = 0;
 
-        cartasDesiguais();      // Falta escrever a função para a seleção de cartas desiguais
+        cartasDesiguais();      
         cartasDesiguais();
+
+        // Desbloqueando a seleção após a escolha as cartas desiguais
+
+        setTimeout(function () {
+            clique.classList.toggle("screen_click_on")
+            clique.classList.toggle("screen_click_off")
+        }, 1000)
    }
 
     
-
 }
 
+function cartasDesiguais() {
+    let frente = document.querySelector(".selecionada .front-face");
+    let verso = document.querySelector(".selecionada .back-face")
+    let carta = document.querySelector(".selecionada")
+    carta.classList.remove("selecionada")
 
+    // Desvirando as cartas desiguais
+
+    setTimeout(function() {
+
+        verso.classList.add("front-face");
+        verso.classList.remove("back-face");
+        
+        frente.classList.add("back-face");
+        frente.classList.remove("front-face");
+
+    }, 1000)
+
+}
 
 
 
