@@ -133,6 +133,13 @@ function cartasDesiguais() {
 
 }
 
+function checarVitoria() {
+    if (paresDescobertos*2 == quantidade) {
+       
+        alert(`você ganhou em ${jogadas} jogadas!`)
+    }
+}
+
 
 
 jogar()
