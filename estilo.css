@@ -89,9 +89,10 @@ main {
     margin-right: 34px;
     margin-bottom: 34px;
     position: relative;
+    
 }
 .card img {
-    width: 100%px;
+    width: 100px;
     height: 100px;
 }
 .face {
@@ -122,8 +123,22 @@ main {
     width: 100vw;
     height: 100vh;
     background-color: none;
-    z-index: -1;
+    z-index: -1;  
+    border: solid;
+    border-color: red;
 }
+.screen_click_off {
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(255, 0, 0, 0.4);
+    border: solid;
+    border-color: blue;
+}
+
 
 
 

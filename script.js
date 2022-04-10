@@ -1,5 +1,9 @@
 // Variáveis globais
 let quantidade;
+let jogadas=0;
+let cartasViradas=0;
+let paresDescobertos=0;  // o Jogo acaba quando paresDescobertos*2 = quantidade de cartas
+
 const imagensCartas = ["imagens/bobrossparrot.gif","imagens/bobrossparrot.gif",
                         "imagens/explodyparrot.gif","imagens/explodyparrot.gif",
                         "imagens/fiestaparrot.gif","imagens/fiestaparrot.gif",
@@ -29,10 +33,10 @@ let imagensEmbaralhadas = imagensCartas.slice(0,(quantidade));
 imagensEmbaralhadas.sort(comparador)
 
 // Montando o baralho de cartas no browser
-
+  
 for (let i=0; i < quantidade; i++) {
     let main = document.querySelector('main')
-    main.innerHTML += `<div class="card" data-identifier="card">
+    main.innerHTML += `<div class="card" data-identifier="card" onclick="cartasIguais(this.querySelector('.back-face'),this.querySelector('.front-face'),this)">
     <div class="back-face face" data-identifier="back-face">
         <img src="imagens/front.png" alt="back_card">
     </div>
@@ -42,12 +46,68 @@ for (let i=0; i < quantidade; i++) {
     </div>
     `
 
+}
+
+} // fim da função jogar
+// Agora que já montei o baralho preciso fazer duas funções: Uma que saiba quando selecionei cartas iguais e outra que saiba que selecionei cartas diferentes
+
+//função usada quando selecionamos cartas iguais:
+
+function cartasIguais(back, front, cartaSelecionada) {
+    if (cartaSelecionada.classList.contains("selecionada") || cartaSelecionada.classList.contains("match")) {
+        return;
+    }  // esse if está impedindo que a gente selecione uma carta que já foi selecionada
+
+    jogadas = jogadas + 1;
+    cartasViradas = cartasViradas + 1;
+
+    cartaSelecionada.classList.add("selecionada")
+
+    back.classList.remove("back-face");
+    back.classList.add("front-face")
+
+    front.classList.remove("front-face");
+    front.classList.add("back-face")
+
+   if (cartasViradas == 2) {
+    let clique = document.querySelector(".screen_click_on")
+    clique.classList.remove("screen_click_on")
+    clique.classList.add("screen_click_off")
+
+    let selecao = document.querySelectorAll(".selecionada")
+    let carta1 = selecao[0];
+    let carta2 = selecao[1];
+
+    if (carta1.innerHTML == carta2.innerHTML) {
+        carta1.classList.add("match");
+        carta2.classList.add("match");
+
+        cartasViradas = 0;
+
+        clique.classList.toggle("screen_click_on")
+        clique.classList.toggle("screen_click_off")
+
+        carta1.classList.remove("selecionada");
+        carta2.classList.remove("selecionada")
+
+        paresDescobertos = paresDescobertos + 1;  
+
+        setTimeout(checarVitoria,2000);  // Falta escrever a função checar Vitória
+
+        return;
+    }
+
+        cartasViradas = 0;
+
+        cartasDesiguais();      // Falta escrever a função para a seleção de cartas desiguais
+        cartasDesiguais();
+   }
+
+    
 
 }
 
 
-
-} // fim da função jogar
 
 
 
@@ -55,30 +115,4 @@ jogar()
 
 
 
-//...............................................................................
 
-/*
-let cartas = []
-let carta = "carta"
-for(let i=0; i< quantidade;i++) {
-   carta = carta + i
-   cartas.push(carta)
-}
-console.log(cartas)  // Aqui eu já tenho a quantidade de cartas que o baralho terá
-
-// Montando o baralho de cartas no browser
-let conjuntoCartas = document.querySelector(".baralho")
-
-for (let i=0; i < quantidade; i++) {
-    conjuntoCartas.innerHTML += ` 
-        <div class="front-face carta-background ">
-            <img class="tamanho-papagaio " src="imagens/front.png" alt=""> 
-        </div>
-        <div class="back-face carta-background">
-            <img class="tamanho-gif" src="imagens/unicornparrot.gif" alt=""> 
-        </div>
-    `
-}
-
-} // fim da função jogar
-*/
