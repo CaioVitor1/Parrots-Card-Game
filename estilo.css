@@ -17,7 +17,7 @@ main {
     flex-wrap: wrap;
     margin-left: 122px;
     margin-right: 88px;
-    border: solid;
+    
 }
 
 .container{
@@ -33,12 +33,11 @@ main {
     line-height: 66px;
     letter-spacing: -0.004em;
     color: #75B79E;
-    border: solid;
     display: flex;
     justify-content: center;
     align-items: center;  
     margin-top: 40px;
-    margin-bottom: 24px;  
+    margin-bottom: 47px;  
 }
 .conteudo-principal{
     border: solid;
@@ -124,8 +123,8 @@ main {
     height: 100vh;
     background-color: none;
     z-index: -1;  
-    border: solid;
-    border-color: red;
+    
+    
 }
 .screen_click_off {
     z-index: 1;
@@ -134,9 +133,16 @@ main {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    background-color: rgba(255, 0, 0, 0.4);
-    border: solid;
-    border-color: blue;
+    background-color:none; 
+}
+.cronometro {
+    font-size: 50px;
+    color: black;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0px;
+    right: 10px;
 }
 
 

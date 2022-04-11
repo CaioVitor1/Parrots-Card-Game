@@ -20,7 +20,7 @@ function selecionandoQuantidade() {
 selecionandoQuantidade()
 
 while((quantidade < 4) || (quantidade > 14)  || ( (quantidade%2) !== 0) ) {
-    quantidade = prompt("Quantidade inválida. Escolha um número par entre 4 e 14 cartas");
+    alert("Quantidade inválida. Escolha um número par entre 4 e 14 cartas");
     selecionandoQuantidade()
 }
 
@@ -49,9 +49,8 @@ for (let i=0; i < quantidade; i++) {
 }
 
 } // fim da função jogar
-// Agora que já montei o baralho preciso fazer duas funções: Uma que saiba quando selecionei cartas iguais e outra que saiba que selecionei cartas diferentes
 
-//função usada quando selecionamos cartas iguais:
+//Escrevendo função usada quando selecionamos cartas iguais:
 
 function cartasIguais(back, front, cartaSelecionada) {
     if (cartaSelecionada.classList.contains("selecionada") || cartaSelecionada.classList.contains("match")) {
@@ -77,7 +76,7 @@ function cartasIguais(back, front, cartaSelecionada) {
     let selecao = document.querySelectorAll(".selecionada")
     let carta1 = selecao[0];
     let carta2 = selecao[1];
-
+   
     if (carta1.innerHTML == carta2.innerHTML) {
         carta1.classList.add("match");
         carta2.classList.add("match");
@@ -92,9 +91,9 @@ function cartasIguais(back, front, cartaSelecionada) {
 
         paresDescobertos = paresDescobertos + 1;  
 
-        setTimeout(checarVitoria,2000);  // Falta escrever a função checar Vitória
+        setTimeout(checarVitoria,2000);  
 
-        return;
+        
     }
 
         cartasViradas = 0;
@@ -136,14 +135,28 @@ function cartasDesiguais() {
 function checarVitoria() {
     if (paresDescobertos*2 == quantidade) {
        
-        alert(`você ganhou em ${jogadas} jogadas!`)
+        alert(`Parebéns! você ganhou em ${jogadas} jogadas e em ${contador} segundos!`)
+ 
     }
+    
 }
 
+let contador = 0;
+let idInterval;
+function contar() {
+        idInterval = setInterval(decrementaContador, 1000);
+      }
 
+function decrementaContador() {
+    contador++;
+    document.querySelector(".cronometro").innerHTML = contador;
+    if (paresDescobertos*2 == quantidade) {
+    clearInterval(idInterval);
+        }
+    }
 
+console.log(contador)
+contar()
 jogar()
-
-
 
 
