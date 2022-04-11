@@ -3,6 +3,7 @@ let quantidade;
 let jogadas=0;
 let cartasViradas=0;
 let paresDescobertos=0;  // o Jogo acaba quando paresDescobertos*2 = quantidade de cartas
+let reinicio;
 
 const imagensCartas = ["imagens/bobrossparrot.gif","imagens/bobrossparrot.gif",
                         "imagens/explodyparrot.gif","imagens/explodyparrot.gif",
@@ -135,19 +136,45 @@ function cartasDesiguais() {
 function checarVitoria() {
     if (paresDescobertos*2 == quantidade) {
        
-        alert(`Parebéns! você ganhou em ${jogadas} jogadas e em ${contador} segundos!`)
- 
+        alert(`Parabéns! você ganhou em ${jogadas} jogadas e em ${contador} segundos!`)
+
+        reiniciandoJogo()
+
+        while((reinicio !== "sim") && (reinicio !== "não")) {
+            alert("Caracteres incorretos. Escreva sim ou não em letras minúsculas")
+            reiniciandoJogo()
+        }
+
+        if ( reinicio == "sim") {
+            let main = document.querySelector("main");
+            main.innerHTML = "";
+            quantidade = 0;
+            paresDescobertos = 0;
+            jogadas = 0;
+            document.querySelector(".cronometro").innerHTML = "0";
+            clearInterval(idInterval);
+            jogar();
+            contador = 0;
+            contar()
+            
+        } else if (reinicio === "não") {
+            paresDescobertos = 0;
+            alert("Fim de jogo");
+            clearInterval(idInterval);
+        } 
+
+
     }
     
 }
-
+ // temporizador
 let contador = 0;
 let idInterval;
 function contar() {
-        idInterval = setInterval(decrementaContador, 1000);
+        idInterval = setInterval(aumentaContador, 1000);
       }
 
-function decrementaContador() {
+function aumentaContador() {
     contador++;
     document.querySelector(".cronometro").innerHTML = contador;
     if (paresDescobertos*2 == quantidade) {
@@ -155,7 +182,17 @@ function decrementaContador() {
         }
     }
 
-console.log(contador)
+// Reiniciando o jogo
+function reiniciandoJogo() {
+    reinicio = prompt("Você deseja reiniciar o jogo? Escreva 'sim' ou 'não' em letras minúsculas")
+}
+
+
+
+
+
+
+
 contar()
 jogar()
 
