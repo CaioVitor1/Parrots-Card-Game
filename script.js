@@ -136,7 +136,7 @@ function cartasDesiguais() {
 function checarVitoria() {
     if (paresDescobertos*2 == quantidade) {
        
-        alert(`Arrasou, miss bumbum! você ganhou em ${jogadas} jogadas e em ${contador} segundos!`)
+        alert(`Aeeee, simplesmente a melhor mémoria de teresina e região! você ganhou em ${jogadas} jogadas e em ${contador} segundos!`)
 
         reiniciandoJogo()
 
