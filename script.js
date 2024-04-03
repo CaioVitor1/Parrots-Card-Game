@@ -5,18 +5,18 @@ let cartasViradas=0;
 let paresDescobertos=0;  // o Jogo acaba quando paresDescobertos*2 = quantidade de cartas
 let reinicio;
 
-const imagensCartas = ["imagens/bobrossparrot.gif","imagens/bobrossparrot.gif",
-                        "imagens/explodyparrot.gif","imagens/explodyparrot.gif",
-                        "imagens/fiestaparrot.gif","imagens/fiestaparrot.gif",
-                        "imagens/metalparrot.gif","imagens/metalparrot.gif",
-                        "imagens/revertitparrot.gif","imagens/revertitparrot.gif",
-                        "imagens/tripletsparrot.gif","imagens/tripletsparrot.gif",
-                        "imagens/unicornparrot.gif","imagens/unicornparrot.gif"]
+const imagensCartas = ["imagens/casal-mordomos.gif","imagens/casal-mordomos.gif",
+                        "imagens/casal.gif","imagens/casal.gif",
+                        "imagens/do-do-hee.gif","imagens/do-do-hee.gif",
+                        "imagens/michael.gif","imagens/michael.gif",
+                        "imagens/songkang-song-kang.gif","imagens/songkang-song-kang.gif",
+                        "imagens/mordomo.gif","imagens/mordomo.gif",
+                        "imagens/guwono.gif","imagens/guwono.gif"]
 
 function jogar() {
 
 function selecionandoQuantidade() {
-    quantidade = parseInt(prompt("Com quantas cartas você quer jogar?"))      
+    quantidade = parseInt(prompt("Olá, Yasmine. Com quantas cartas você quer jogar?"))      
 }
 selecionandoQuantidade()
 

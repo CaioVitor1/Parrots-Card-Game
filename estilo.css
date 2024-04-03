@@ -7,7 +7,7 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Roboto', sans-serif;
-    background-color: #EEF9BF;
+    background-color: #2F4F4F;
     text-align: center;
     flex-direction: column;
 }
@@ -23,7 +23,7 @@ main {
 .container{
     width: 1110px;
     height: 700px;
-    background: #EEF9BF;
+    background: #2F4F4F;
 }
 .cabecalho {
     font-family: 'Roboto';
